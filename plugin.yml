@@ -1,0 +1,37 @@
+name: FearTheReaper
+version: 1.0.0-a000
+main: com.bitzcraftonline.fearthereaper.FearTheReaper
+author: PvM_Iain
+softdepend: [ dynmap ]
+commands:
+  graveyard:
+    description: Graveyard Commands
+    usage: /<command> <list | add | delete | tp | closest>
+    aliases: ['gy']
+permissions:
+  graveyard.closest:
+    default: true
+    description: Spawns a player at the closest spawn point
+  graveyard.spawn.all:
+    description: The default spawn group that all spawns are a part of
+    default: true
+  graveyard.spawn.*:
+    description: Gives permissions to spawn at any graveyard
+    default: op
+  graveyard.command.admin:
+    description: Gives permission to the admin commands
+    default: op
+    children:
+      graveyard.command.add: true
+      graveyard.command.tp: true
+      graveyard.command.message: true
+      graveyard.command.reload: true
+      graveyard.command.group: true
+      graveyard.command.delete: true
+  graveyard.command.user:
+    description: Gives permission for the user commands
+    default: true
+    children:
+      graveyard.command.closest: true
+      graveyard.command.info: true
+      graveyard.command.list: true   
